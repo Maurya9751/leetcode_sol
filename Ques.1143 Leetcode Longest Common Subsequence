@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int solve(string text1,string text2,int size1,int size2){
+        if(size1==0 || size2==0)
+            return 0;
+        if(text1[size1-1]==text2[size2-1])
+           return (1+solve(text1,  text2,size1-1,size2-1));
+           else  
+           return
+               max(solve(text1,  text2,size1-1,size2),solve(text1,  text2,size1,size2-1));
+    }
+    
+    int longestCommonSubsequence(string text1, string text2) {
+        int size1=text1.size(),size2=text2.size();
+        int res=solve(text1,text2,size1,size2);
+        return res;
+    }
+};
